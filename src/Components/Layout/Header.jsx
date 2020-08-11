@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -7,7 +7,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from "reactstrap";
 
 const Header = (props) => {
@@ -22,16 +22,15 @@ const Header = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink >
+            <NavLink>
               <Link to="/login">Login</Link>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink>
-            <Link to="/register">Register</Link>
+              <Link to="/register">Register</Link>
             </NavLink>
           </NavItem>
-        
         </Nav>
       </Collapse>
     </Navbar>
