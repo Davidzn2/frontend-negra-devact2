@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 function UsersList() {
   const [users, setUsers] = useState([]);
 
-  const { token } = useContext(AuthContext);
+  const { isAuth } = useContext(AuthContext);
   const URL_GET_USERS = "http://localhost:8080/api/v1/users";
 
   useEffect(() => {
@@ -21,11 +21,15 @@ function UsersList() {
 
   return (
     <>
-      <ul>
-        {users.map((user) => (
-          <li>{user.first_name}</li>
-        ))}
-      </ul>
+      {isAuth ? (
+        <ul>
+          {users.map((user) => (
+            <li>{user.first_name}</li>
+          ))}
+        </ul>
+      ) : (
+        <Link to="/login" > Ir a inicio </Link>
+      )}
     </>
   );
 }
